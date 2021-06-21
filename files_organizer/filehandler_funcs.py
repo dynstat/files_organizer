@@ -46,8 +46,8 @@ def filecopy(ext, item, from_folder):
     # print("ye aya hai call hoke = ", ext, '\n')
     if ext != "folder":
         if ext in audio_extensions:
-            r = shutil.copy(from_folder+r"\\"+item, audio_path)
-            print(f"ext = {ext} and path = {r}")
+            shutil.copy(from_folder+r"\\"+item, audio_path)
+            # print(f"ext = {ext} and path = {r}")
         elif ext in video_extensions:
             shutil.copy(from_folder+r"\\"+item, video_path)
             # print(ext)

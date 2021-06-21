@@ -6,16 +6,14 @@ import time
 
 func.app_setup_path = "C:/Users/vivek/Desktop/soft"
 func.text_path = "C:/Users/vivek/Desktop/text"
-func.text_path = "C:/Users/vivek/Desktop/audio"
-
+func.audio_path = "C:/Users/vivek/Desktop/audio"
 
 
 print("Have you set the paths of each destination folder ? (y/n)")
 if input() != 'y':
-	print("Please set the paths first, Exiting.....!!! ")
-	time.sleep(1)
-	exit()
-
+    print("Please set the paths first, Exiting.....!!! ")
+    time.sleep(1)
+    exit()
 
 
 while True:
