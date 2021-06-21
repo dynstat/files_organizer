@@ -10,12 +10,12 @@ app_setup_path = "C:/Users/vivek/Downloads/def_fldr/softfileswala"
 docs_path = "C:/Users/vivek/Downloads/def_fldr/docswala"
 audio_path = "C:/Users/vivek/Downloads/def_fldr/audiowala"
 
-docs_extensions = ['pdf', 'doc', 'docx', 'ppt', 'PDF', 'PPT']
-audio_extensions = ['mp3', 'aac', 'flac', 'wav']
-video_extensions = ['mp4', 'mkv', '3gp', 'gif']
-img_extensions = ['jpg', 'jpeg', 'png']
-app_setup_extensions = ['exe', 'zip', 'rar', 'apk', 'msi', '7z']
-text_extensions = ['txt']
+docs_extensions = {'pdf', 'doc', 'docx', 'ppt', 'PDF', 'PPT'}
+audio_extensions = {'mp3', 'aac', 'flac', 'wav'}
+video_extensions = {'mp4', 'mkv', '3gp', 'gif'}
+img_extensions = {'jpg', 'jpeg', 'png'}
+app_setup_extensions = {'exe', 'zip', 'rar', 'apk', 'msi', '7z'}
+text_extensions = {'txt'}
 
 
 def filemover(ext, item, from_folder):
