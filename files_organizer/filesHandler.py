@@ -10,7 +10,7 @@ func.audio_path = "C:/Users/vivek/Desktop/audio"
 
 
 print("Have you set the paths of each destination folder ? (y/n)")
-if input() != 'y':
+if input() != 'y' and 'Y':
     print("Please set the paths first, Exiting.....!!! ")
     time.sleep(1)
     exit()
@@ -21,19 +21,19 @@ while True:
     # returns a list of all the folders and files name
     # print(cwd)  # C:\Users\vivek\Downloads\def_fldr\prjfilehlr
     BASE_FOLDER = os.path.dirname(cwd)
-    # print(f" base folder = {BASE_FOLDER}")  # C:\Users\vivek\Downloads\def_fldr
     list_of_files = os.listdir(BASE_FOLDER)
 
     for item in list_of_files:
         # abs_item_path = f"{cwd}/{item}"
 
         ext = func.extenChecker(item)
-        # print("item = ", item)  #name of file or folder
+        i# print("item = ", item)  #name of file or folder
         # print(f"ext = {ext}")   #its extension or folder
         try:
             func.filecopy(ext, item, BASE_FOLDER)
-        except:
-            pass
+        except Exception as e:
+        print("Oops!", e.__class__, "occurred")
+    
     time.sleep(2)
     # movedToPath = func.filemover(ext)
     # print(f"file is successfuly moved to {movedToPath}")
