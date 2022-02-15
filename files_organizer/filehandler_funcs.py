@@ -3,6 +3,7 @@ import shutil
 
 # cwd = os.getcwd()
 # src_path = cwd
+# Paths to be set manually
 text_path = "C:/Users/vivek/Downloads/def_fldr/textwala"
 video_path = "C:/Users/vivek/Downloads/def_fldr/videowala"
 img_path = "C:/Users/vivek/Downloads/def_fldr/imgwala"
@@ -19,51 +20,47 @@ text_extensions = {'txt'}
 
 
 def filemover(ext, item, from_folder):
-    # print("ye aya hai call hoke = ", ext, '\n')
+
     if ext != "folder":
         if ext in audio_extensions:
-            shutil.move(from_folder+r"\\"+item, audio_path)
+            shutil.move(f'{from_folder}\\\\{item}', audio_path)
             # print(ext)
         elif ext in video_extensions:
-            shutil.move(from_folder+r"\\"+item, video_path)
+            shutil.move(f'{from_folder}\\\\{item}', video_path)
             # print(ext)
         elif ext in docs_extensions:
-            shutil.move(from_folder+r"\\"+item, docs_path)
-            # print("ye in docs wala = ", ext, '\n')
+            shutil.move(f'{from_folder}\\\\{item}', docs_path)
+
         elif ext in img_extensions:
-            shutil.move(from_folder+r"\\"+item, img_path)
+            shutil.move(f'{from_folder}\\\\{item}', img_path)
 
         elif ext in app_setup_extensions:
-            shutil.move(from_folder+r"\\"+item, app_setup_path)
+            shutil.move(f'{from_folder}\\\\{item}', app_setup_path)
 
         elif ext in text_extensions:
-            shutil.move(from_folder+r"\\"+item, text_path)
-        else:
-            pass
+            shutil.move(f'{from_folder}\\\\{item}', text_path)
 
 
 def filecopy(ext, item, from_folder):
-    # print("ye aya hai call hoke = ", ext, '\n')
+
     if ext != "folder":
         if ext in audio_extensions:
-            shutil.copy(from_folder+r"\\"+item, audio_path)
+            shutil.copy(f'{from_folder}\\\\{item}', audio_path)
             # print(f"ext = {ext} and path = {r}")
         elif ext in video_extensions:
-            shutil.copy(from_folder+r"\\"+item, video_path)
+            shutil.copy(f'{from_folder}\\\\{item}', video_path)
             # print(ext)
         elif ext in docs_extensions:
-            shutil.copy(from_folder+r"\\"+item, docs_path)
-            # print("ye in docs wala = ", ext, '\n')
+            shutil.copy(f'{from_folder}\\\\{item}', docs_path)
+            # print("docs  = ", ext, '\n')
         elif ext in img_extensions:
-            shutil.copy(from_folder+r"\\"+item, img_path)
+            shutil.copy(f'{from_folder}\\\\{item}', img_path)
 
         elif ext in app_setup_extensions:
-            shutil.copy(from_folder+r"\\"+item, app_setup_path)
+            shutil.copy(f'{from_folder}\\\\{item}', app_setup_path)
 
         elif ext in text_extensions:
-            shutil.copy(from_folder+r"\\"+item, text_path)
-        else:
-            pass
+            shutil.copy(f'{from_folder}\\\\{item}', text_path)
 
 
 def extenChecker(abs_path):
