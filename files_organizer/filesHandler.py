@@ -27,13 +27,13 @@ while True:
         # abs_item_path = f"{cwd}/{item}"
 
         ext = func.extenChecker(item)
-        i# print("item = ", item)  #name of file or folder
+        # print("item = ", item)  #name of file or folder
         # print(f"ext = {ext}")   #its extension or folder
         try:
             func.filecopy(ext, item, BASE_FOLDER)
         except Exception as e:
-        print("Oops!", e.__class__, "occurred")
-    
+            print("Oops!", e.__class__, "occurred")
+
     time.sleep(2)
     # movedToPath = func.filemover(ext)
     # print(f"file is successfuly moved to {movedToPath}")
