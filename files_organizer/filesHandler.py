@@ -1,8 +1,8 @@
 import os
-# import shutil
-import filehandler_funcs as func
 import time
 
+# import shutil
+import filehandler_funcs as func
 
 func.app_setup_path = "C:/Users/vivek/Desktop/soft"
 func.text_path = "C:/Users/vivek/Desktop/text"
