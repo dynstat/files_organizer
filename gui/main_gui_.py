@@ -43,7 +43,9 @@ def main(page: ft.Page):
                         text_style=ft.TextStyle(color=ft.colors.BLACK12),
                         # expand=True,
                     ),
-                    bgcolor=ft.colors.AMBER_300,
+                    # bgcolor=ft.colors.AMBER_300,
+                    expand=True,
+                    padding=10,
                 ),
                 ft.Container(
                     ft.ElevatedButton(
@@ -54,11 +56,10 @@ def main(page: ft.Page):
                         ),
                     ),
                     bgcolor=ft.colors.AMBER_100,
-                    padding=30,
+                    padding=10,
                 ),
             ],
-            alignment=ft.MainAxisAlignment.START,
-            spacing=50,
+            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         ),
         padding=1,
         bgcolor=ft.colors.RED_50,
@@ -82,7 +83,6 @@ def main(page: ft.Page):
         print("file picker started")
 
     pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
-    selected_files = ft.Text()
 
     page.overlay.append(pick_files_dialog)
 
