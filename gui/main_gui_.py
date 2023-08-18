@@ -13,12 +13,15 @@ def main(page: ft.Page):
     page.window_height = 540
     page.window_width = 686
     page.padding = 0
+    page.window_min_width = 680
     # page.window_title_bar_hidden = True
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
     # Control 0 Start
     title_appBar = ft.AppBar(
-        title=ft.Text("FILES ORGANIZER", color=ft.colors.BLUE),
+        title=ft.Text(
+            "FILES ORGANIZER", color=ft.colors.BLUE, weight=ft.FontWeight.BOLD
+        ),
         center_title=True,
         bgcolor=ft.colors.BLUE_100,
     )
@@ -32,7 +35,7 @@ def main(page: ft.Page):
                     ft.Text("Folder to organize:", size=20),
                     padding=0,
                     alignment=ft.alignment.center_left,
-                    bgcolor=ft.colors.AMBER_100,
+                    # bgcolor=ft.colors.AMBER_100,
                 ),
                 ft.Container(
                     ft.TextField(
@@ -56,7 +59,7 @@ def main(page: ft.Page):
                             allow_multiple=True
                         ),
                     ),
-                    bgcolor=ft.colors.AMBER_100,
+                    # bgcolor=ft.colors.AMBER_100,
                     padding=10,
                 ),
             ],
