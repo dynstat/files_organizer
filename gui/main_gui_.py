@@ -63,7 +63,7 @@ def main(page: ft.Page):
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         ),
         padding=1,
-        bgcolor=ft.colors.RED_50,
+        # bgcolor=ft.colors.RED_50,
     )
     # Control 1.1 End
 
