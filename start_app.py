@@ -1,10 +1,10 @@
 # starting point of the app
 
 
-import gui.main_gui_ as gui
-import flet as ft
+import flet as ft  # importing flet
+import gui.main_gui_ as gui  # gui module contianing functions, views
 
 
-# main starting point of execution
+# main
 if __name__ == "__main__":
-    ft.app(target=gui.main)
+    ft.app(target=gui.main)  # calling the function of the flet library to start the gui
