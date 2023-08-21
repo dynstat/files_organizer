@@ -5,7 +5,7 @@ import flet as ft
 
 
 # personal imports
-from app_styles import button_style1
+from .app_styles import button_style1
 
 
 def main(page: ft.Page):
