@@ -1,9 +1,5 @@
 import flet as ft
 
-# from flet.buttons import RoundedRectangleBorder
-# from flet.border import BorderSide
-
-
 # personal imports
 from .app_styles import button_style1
 
