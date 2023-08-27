@@ -104,23 +104,31 @@ def main(page: ft.Page):
     )
     # Control 1.2 End
 
+    path_ctrl = target_dir_row.content.controls[1].content
+
+    def wrapper():
+        if path_ctrl.hint_text == "path to the folder":
+            print("choose folder")
+        else:
+            print("Organizing...")
+            afo.organize_files(path_ctrl.hint_text)
+            print("Organized")
+
     start_btn = ft.ElevatedButton(
         text="ORGANIZE",
         style=button_style1,
-        on_click=lambda _: print("pressed"),
+        on_click=lambda _: wrapper(),
     )
 
     # Control 1 Starts
     main_col = ft.Column(controls=[target_dir_row, group_outer_col])
     # Control 1 End
 
-    pc = target_dir_row.content.controls[1].content
-
     def pick_folder_result(e: ft.FilePickerResultEvent):
-        nonlocal pc
+        nonlocal path_ctrl
         print(f"folder path selected, {e.path} ")
-        pc.hint_text = e.path
-        pc.update()
+        path_ctrl.hint_text = e.path
+        path_ctrl.update()
 
     pick_folder_dialog = ft.FilePicker(on_result=pick_folder_result)
 
