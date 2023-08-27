@@ -1,13 +1,14 @@
 import os
 import shutil
 from pathlib import Path
+from time import sleep
 
 
 def organize_files(source_folder):
     try:
         # Create the destination folder in the same directory as the source folder
         destination_folder = os.path.join(
-            os.path.dirname(source_folder), "organized_files"
+            os.path.dirname(source_folder), "organized_folder"
         )
         Path(destination_folder).mkdir(parents=True, exist_ok=True)
 
@@ -64,16 +65,16 @@ def organize_files(source_folder):
         print(f"An error occurred: {e}")
 
 
-def move_back_to_source(destination_folder, to_folder):
+def move_back_to_source(organized_folder, to_folder):
     try:
-        source_folder = os.path.join(os.path.dirname(destination_folder), to_folder)
+        source_folder = os.path.join(os.path.dirname(organized_folder), to_folder)
 
         # Create the source folder if it doesn't exist
         Path(source_folder).mkdir(parents=True, exist_ok=True)
 
         # Iterate through organized folders
-        for folder_name in os.listdir(destination_folder):
-            folder_path = os.path.join(destination_folder, folder_name)
+        for folder_name in os.listdir(organized_folder):
+            folder_path = os.path.join(organized_folder, folder_name)
             if os.path.isdir(folder_path):
                 for filename in os.listdir(folder_path):
                     source_path = os.path.join(folder_path, filename)
@@ -92,7 +93,7 @@ def move_back_to_source(destination_folder, to_folder):
                     shutil.move(source_path, target_path)
 
         # Remove the organized_files directory
-        shutil.rmtree(destination_folder)
+        shutil.rmtree(organized_folder)
 
     except Exception as e:
         print(f"An error occurred: {e}")
