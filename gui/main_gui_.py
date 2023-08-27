@@ -65,18 +65,50 @@ def main(page: ft.Page):
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         ),
         padding=1,
-        bgcolor=ft.colors.RED_50,
+        # bgcolor=ft.colors.RED_50,
     )
     # Control 1.1 End
 
     # Control 1.2 Start
     group_outer_col = ft.Container(
         ft.Column(
-            controls=[],
+            controls=[
+                ft.Row(
+                    controls=[
+                        ft.Container(
+                            ft.Text("New Folder Name:", size=20),
+                            padding=0,
+                            alignment=ft.alignment.center_left,
+                            # bgcolor=ft.colors.AMBER_100,
+                        ),
+                        ft.Container(
+                            ft.TextField(
+                                hint_text="organized_folder",
+                                border_radius=15,
+                                height=50,
+                                text_align=ft.TextAlign.LEFT,
+                                border_width=1,
+                                text_style=ft.TextStyle(color=ft.colors.BLACK87),
+                                # expand=True,
+                            ),
+                            # bgcolor=ft.colors.AMBER_300,
+                            expand=True,
+                            padding=ft.Padding(left=0, right=125, top=0, bottom=0),
+                            width=500,
+                        ),
+                    ]
+                )
+            ],
         ),
-        bgcolor=ft.colors.AMBER_200,
+        # bgcolor=ft.colors.AMBER_200,
     )
     # Control 1.2 End
+
+    start_btn = ft.ElevatedButton(
+        text="ORGANIZE",
+        style=button_style1,
+        on_click=lambda _: print("pressed"),
+    )
 
     # Control 1 Starts
     main_col = ft.Column(controls=[target_dir_row, group_outer_col])
@@ -97,6 +129,7 @@ def main(page: ft.Page):
     page.controls.append(title_appBar)
     page.controls.append(ft.Divider(thickness=1, opacity=0, height=10))
     page.controls.append(main_col)
+    page.controls.append(start_btn)
 
     page.update()
 
