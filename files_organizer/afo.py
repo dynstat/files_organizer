@@ -13,11 +13,16 @@ def organize_files(source_folder):
 
         # Mapping of folder names to lists of extension names
         folder_extensions = {
-            "docs": ["pdf", "txt"],
-            "audio": ["mp3"],
-            "imgs": ["jpg", "jpeg"],
-            "video": ["mp4"],
-            "soft": ["exe"],
+            "docs": [
+                "pdf",
+                "txt",
+                "doc",
+                "docx",
+            ],
+            "audio": ["mp3", "aac"],
+            "imgs": ["jpg", "jpeg", "png"],
+            "video": ["mp4", "avi"],
+            "soft": ["exe", "msi"],
             # Add more folder and extension combinations as needed
         }
 
