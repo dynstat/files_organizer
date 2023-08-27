@@ -1,5 +1,7 @@
 # files_organizer
 
-WARNING !!! STILL IN DEVELOPMENT PHASE. DON'T TRY IT IF YOU ARE NOT AWARE OF WHAT IT'S DOING, YOU MIGHT EVEN END UP LOSING YOUR IMPORTANT FILES.
+WARNING !!! 
+Do not test it on your important folders and files, it is still in development phase.
 
-A small python script to manage all the files according to their extension names to any location of user's choice.
+A small cross-platform GUI application made using Python. 
+It can organize any folder which is cluttered with different types of files into their separate respective folders. It creates a new folder named "organized_folder" (can be modified) in the same parent directory as of the target (cluttered) folder you have chosen to organize.
