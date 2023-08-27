@@ -4,6 +4,11 @@ import flet as ft
 from .app_styles import button_style1
 
 
+from files_organizer import (
+    afo,
+)  # imported the modulw which has all the functions related to moving, copying, resetting etc
+
+
 def main(page: ft.Page):
     page.theme_mode = "light"
     page.window_height = 540
@@ -21,9 +26,9 @@ def main(page: ft.Page):
         center_title=True,
         bgcolor=ft.colors.BLUE_100,
     )
-    # Control 0 End
+    # Control 0 Ends here
 
-    # Control 1.1 Start
+    # Control 1.1 Starts here
     target_dir_row = ft.Container(
         ft.Row(
             controls=[
@@ -51,9 +56,7 @@ def main(page: ft.Page):
                     ft.ElevatedButton(
                         text="Browse",
                         style=button_style1,
-                        on_click=lambda _: pick_files_dialog.pick_files(
-                            allow_multiple=True
-                        ),
+                        on_click=lambda _: pick_folder_dialog.get_directory_path(),
                     ),
                     # bgcolor=ft.colors.AMBER_100,
                     padding=10,
@@ -62,7 +65,7 @@ def main(page: ft.Page):
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         ),
         padding=1,
-        # bgcolor=ft.colors.RED_50,
+        bgcolor=ft.colors.RED_50,
     )
     # Control 1.1 End
 
@@ -79,19 +82,25 @@ def main(page: ft.Page):
     main_col = ft.Column(controls=[target_dir_row, group_outer_col])
     # Control 1 End
 
-    def pick_files_result(e: ft.FilePickerResultEvent):
-        print("file picker started")
+    pc = target_dir_row.content.controls[1].content
 
-    pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
+    def pick_folder_result(e: ft.FilePickerResultEvent):
+        nonlocal pc
+        print(f"folder path selected, {e.path} ")
+        pc.hint_text = e.path
+        pc.update()
 
-    page.overlay.append(pick_files_dialog)
+    pick_folder_dialog = ft.FilePicker(on_result=pick_folder_result)
+
+    page.overlay.append(pick_folder_dialog)
 
     page.controls.append(title_appBar)
-    page.controls.append(ft.Divider(thickness=10, opacity=0))
+    page.controls.append(ft.Divider(thickness=1, opacity=0, height=10))
     page.controls.append(main_col)
 
     page.update()
 
 
+# Not the actual entry point, just for testing.
 if __name__ == "__main__":
     ft.app(target=main)
