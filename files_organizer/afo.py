@@ -4,13 +4,15 @@ from pathlib import Path
 from time import sleep
 
 
-def organize_files(source_folder):
+def organize_folder(source_folder, new_dest_folder_path=None):
     try:
-        # Create the destination folder in the same directory as the source folder
-        destination_folder = os.path.join(
-            os.path.dirname(source_folder), "organized_folder"
-        )
-        Path(destination_folder).mkdir(parents=True, exist_ok=True)
+        if not new_dest_folder_path:
+            # using the same location as the destination folder, i.e. organize in place
+            destination_folder = os.path.abspath(source_folder)
+        else:
+            # Create the destination folder in the same directory as the source folder, if asked
+            destination_folder = os.path.join(os.path.abspath(new_dest_folder_path))
+            Path(destination_folder).mkdir(parents=True, exist_ok=True)
 
         # Mapping of folder names to lists of extension names
         folder_extensions = {
@@ -24,6 +26,7 @@ def organize_files(source_folder):
             "imgs": ["jpg", "jpeg", "png"],
             "video": ["mp4", "avi"],
             "soft": ["exe", "msi"],
+            "compressed": ["zip", "rar", "7zip"]
             # Add more folder and extension combinations as needed
         }
 
@@ -60,15 +63,18 @@ def organize_files(source_folder):
 
                 # Move the file to the target folder
                 shutil.move(source_path, target_path)
+                # sleep(10)
 
     except Exception as e:
         print(f"An error occurred: {e}")
 
 
-def move_back_to_source(organized_folder, to_folder):
+def move_back_to_source(organized_folder, to_folder=None):
     try:
-        source_folder = os.path.join(os.path.dirname(organized_folder), to_folder)
-
+        if not to_folder:
+            source_folder = os.path.join(os.path.abspath(organized_folder))
+        else:
+            source_folder = os.path.join(os.path.abspath(organized_folder), to_folder)
         # Create the source folder if it doesn't exist
         Path(source_folder).mkdir(parents=True, exist_ok=True)
 
@@ -92,8 +98,8 @@ def move_back_to_source(organized_folder, to_folder):
                     # Move the file back to the source folder
                     shutil.move(source_path, target_path)
 
-        # Remove the organized_files directory
-        shutil.rmtree(organized_folder)
+        # # Remove the organized_files directory
+        # shutil.rmtree(organized_folder)
 
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -101,14 +107,14 @@ def move_back_to_source(organized_folder, to_folder):
 
 # just for testing
 if __name__ == "__main__":
-    source_folder = "testfolder"
+    source_folder = "testingfolder"
 
     # Organize files to the destination folder
-    organize_files(source_folder)
-    print("Files organized successfully.")
+    # organize_folder(source_folder)
+    # print("Files organized successfully.")
 
-    # destination_folder = os.path.join(os.path.dirname(source_folder), "organized_files")
-    # print(destination_folder)
-    # # Move files back to the source folder
-    # move_back_to_source(destination_folder, to_folder=source_folder)
-    # print("Files moved back to source folder.")
+    organized_folder = os.path.join(os.path.abspath(source_folder))
+    print(organized_folder)
+    # Move files back to the source folder
+    move_back_to_source(organized_folder)
+    print("Files moved back to source folder.")
