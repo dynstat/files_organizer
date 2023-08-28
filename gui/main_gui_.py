@@ -8,6 +8,8 @@ from files_organizer import (
     afo,
 )  # imported the modulw which has all the functions related to moving, copying, resetting etc
 
+from files_organizer import globals_
+
 
 def main(page: ft.Page):
     page.theme_mode = "light"
@@ -83,7 +85,7 @@ def main(page: ft.Page):
                         ),
                         ft.Container(
                             ft.TextField(
-                                hint_text="organized_folder",
+                                hint_text="same as source",
                                 border_radius=15,
                                 height=50,
                                 text_align=ft.TextAlign.LEFT,
@@ -106,18 +108,37 @@ def main(page: ft.Page):
 
     path_ctrl = target_dir_row.content.controls[1].content
 
-    def wrapper():
-        if path_ctrl.hint_text == "path to the folder":
-            print("choose folder")
-        else:
-            print("Organizing...")
-            afo.organize_files(path_ctrl.hint_text)
-            print("Organized")
+    def wrapper_organize(cntrl):
+        try:
+            if cntrl.control.text == "STOP":
+                cntrl.control.text = "ORGANIZE"
+
+                globals_.KEEP_RUNNING = 0
+                cntrl.control.update()
+                #! yet to implement keep-running and stopping mechanism
+                return
+            if path_ctrl.hint_text == "path to the folder":
+                print("choose folder")
+            else:
+                print("Organizing...")
+                afo.organize_folder(path_ctrl.hint_text)
+                print("Organized")
+
+            #! To be used while implementing keep-running and stopping mechanism
+            # if cntrl.control.text == "ORGANIZE":
+            #     cntrl.control.text = "STOP"
+            # elif cntrl.control.text == "STOP":
+            #     cntrl.control.text = "ORGANIZE"
+
+        except Exception as e:
+            print(f"error in wrapper_organize: {e}")
+            cntrl.control.text == "ERROR"
+        cntrl.control.update()
 
     start_btn = ft.ElevatedButton(
         text="ORGANIZE",
         style=button_style1,
-        on_click=lambda _: wrapper(),
+        on_click=lambda c: wrapper_organize(c),
     )
 
     # Control 1 Starts
