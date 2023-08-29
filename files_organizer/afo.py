@@ -43,6 +43,7 @@ def organize_folder(source_folder, new_dest_folder_path=None):
                         target_folder = folder
                         break
                 if not target_folder:
+                    continue  # if uncommented, and if the filetype used is not in the expected extension list, it will be ignored
                     target_folder = "other"
 
                 target_folder_path = os.path.join(destination_folder, target_folder)
