@@ -15,5 +15,5 @@ button_style1 = ft.ButtonStyle(
         ft.MaterialState.DEFAULT.value: ft.colors.WHITE,
     },
     color={ft.MaterialState.DEFAULT.value: ft.colors.BLACK},
-    side=ft.BorderSide(color=ft.colors.BLACK, width=1),
+    # side=ft.BorderSide(color=ft.colors.BLACK, width=1),
 )
