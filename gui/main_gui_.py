@@ -26,7 +26,7 @@ def main(page: ft.Page):
             "FILES ORGANIZER", color=ft.colors.BLUE, weight=ft.FontWeight.BOLD
         ),
         center_title=True,
-        bgcolor=ft.colors.BLUE_100,
+        bgcolor=ft.colors.WHITE70,
     )
     # Control 0 Ends here
 
@@ -95,8 +95,17 @@ def main(page: ft.Page):
                             ),
                             # bgcolor=ft.colors.AMBER_300,
                             expand=True,
-                            padding=ft.Padding(left=0, right=125, top=0, bottom=0),
+                            padding=ft.Padding(left=0, right=0, top=0, bottom=0),
                             width=500,
+                        ),
+                        ft.Container(
+                            ft.ElevatedButton(
+                                text="Browse",
+                                style=button_style1,
+                                on_click=lambda _: pick_folder_dialog.get_directory_path(),
+                            ),
+                            # bgcolor=ft.colors.AMBER_100,
+                            padding=10,
                         ),
                     ]
                 )
