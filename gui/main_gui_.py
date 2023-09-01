@@ -78,7 +78,7 @@ def main(page: ft.Page):
                 ft.Row(
                     controls=[
                         ft.Container(
-                            ft.Text("New Folder Name:", size=20),
+                            ft.Text("Destination folder:", size=20),
                             padding=0,
                             alignment=ft.alignment.center_left,
                             # bgcolor=ft.colors.AMBER_100,
