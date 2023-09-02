@@ -116,6 +116,7 @@ def main(page: ft.Page):
     # Control 1.2 End
 
     path_ctrl = target_dir_row.content.controls[1].content
+    path_ctrl2 = group_outer_col.content.controls[0].controls[1].content
 
     def wrapper_organize(cntrl):
         try:
@@ -160,7 +161,14 @@ def main(page: ft.Page):
         path_ctrl.hint_text = e.path
         path_ctrl.update()
 
+    def pick_folder_result2(e: ft.FilePickerResultEvent):
+        nonlocal path_ctrl2
+        print(f"folder path selected, {e.path} ")
+        path_ctrl2.hint_text = e.path
+        path_ctrl2.update()
+
     pick_folder_dialog = ft.FilePicker(on_result=pick_folder_result)
+    pick_folder_dialog = ft.FilePicker(on_result=pick_folder_result2)
 
     page.overlay.append(pick_folder_dialog)
 
