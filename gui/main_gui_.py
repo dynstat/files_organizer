@@ -102,7 +102,7 @@ def main(page: ft.Page):
                             ft.ElevatedButton(
                                 text="Browse",
                                 style=button_style1,
-                                on_click=lambda _: pick_folder_dialog.get_directory_path(),
+                                on_click=lambda _: pick_folder_dialog2.get_directory_path(),
                             ),
                             # bgcolor=ft.colors.AMBER_100,
                             padding=10,
@@ -168,9 +168,10 @@ def main(page: ft.Page):
         path_ctrl2.update()
 
     pick_folder_dialog = ft.FilePicker(on_result=pick_folder_result)
-    pick_folder_dialog = ft.FilePicker(on_result=pick_folder_result2)
+    pick_folder_dialog2 = ft.FilePicker(on_result=pick_folder_result2)
 
     page.overlay.append(pick_folder_dialog)
+    page.overlay.append(pick_folder_dialog2)
 
     page.controls.append(title_appBar)
     page.controls.append(ft.Divider(thickness=1, opacity=0, height=10))
