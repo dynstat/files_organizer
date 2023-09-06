@@ -26,8 +26,7 @@ def organize_folder(source_folder, new_dest_folder_path=None):
             "imgs": ["jpg", "jpeg", "png"],
             "video": ["mp4", "avi"],
             "soft": ["exe", "msi"],
-            "compressed": ["zip", "rar", "7zip"]
-            # Add more folder and extension combinations as needed
+            "compressed": ["zip", "rar", "7zip"],
         }
 
         # Iterate through files in the source folder
