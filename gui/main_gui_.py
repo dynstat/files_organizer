@@ -155,12 +155,14 @@ def main(page: ft.Page):
     main_col = ft.Column(controls=[target_dir_row, group_outer_col])
     # Control 1 End
 
+    # file picker for target folder.
     def pick_folder_result(e: ft.FilePickerResultEvent):
         nonlocal path_ctrl
         print(f"folder path selected, {e.path} ")
         path_ctrl.hint_text = e.path
         path_ctrl.update()
 
+    # file picker for the destination folder.
     def pick_folder_result2(e: ft.FilePickerResultEvent):
         nonlocal path_ctrl2
         print(f"folder path selected, {e.path} ")
