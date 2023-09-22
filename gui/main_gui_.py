@@ -8,7 +8,7 @@ from files_organizer import (
     afo,
 )  # imported the modulw which has all the functions related to moving, copying, resetting etc
 
-from files_organizer import globals_
+from files_organizer import globals_  # globals import
 
 
 def main(page: ft.Page):
