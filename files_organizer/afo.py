@@ -4,6 +4,7 @@ from pathlib import Path
 from time import sleep
 
 
+# function to organize the directory
 def organize_folder(source_folder, new_dest_folder_path=None):
     try:
         if not new_dest_folder_path:
