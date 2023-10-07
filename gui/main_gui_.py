@@ -36,7 +36,7 @@ def main(page: ft.Page):
             controls=[
                 ft.Container(
                     ft.Text("Folder to organize:", size=20),
-                    padding=0,
+                    padding=ft.padding.only(left=10),
                     alignment=ft.alignment.center_left,
                     # bgcolor=ft.colors.AMBER_100,
                 ),
@@ -79,7 +79,7 @@ def main(page: ft.Page):
                     controls=[
                         ft.Container(
                             ft.Text("Destination folder:", size=20),
-                            padding=0,
+                            padding=ft.padding.only(left=10),
                             alignment=ft.alignment.center_left,
                             # bgcolor=ft.colors.AMBER_100,
                         ),
