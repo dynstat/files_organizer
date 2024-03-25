@@ -94,7 +94,7 @@ def organize_folder(source_folder, new_dest_folder_path=None):
         logging.error(f"An error occurred while organizing files: {e}")
 
 
-def move_back_to_source(organized_folder, to_folder=None):
+def de_organize(organized_folder, to_folder=None):
     """Moves files back to the source folder from their organized subfolders."""
     try:
         source_folder = to_folder or organized_folder
@@ -116,7 +116,7 @@ if __name__ == "__main__":
 
         # sleep(10)
         # Move files back to the source folder
-        move_back_to_source(str(organized_folder))
+        de_organize(str(organized_folder))
         logging.info("Files moved back to source folder.")
     except Exception as e:
         logging.error(f"An error occurred in the main block: {e}")
