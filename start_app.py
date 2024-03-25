@@ -4,6 +4,8 @@ import shutil
 from pathlib import Path
 from time import sleep
 from files_organizer.globals_ import globals_init
+import hashlib
+import logging
 
 import flet as ft  # importing flet
 import gui.main_gui_ as gui  # gui module contianing functions, views
