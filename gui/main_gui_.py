@@ -23,7 +23,7 @@ def main(page: ft.Page):
     # Control 0 Start
     title_appBar = ft.AppBar(
         title=ft.Text(
-            "FILES ORGANIZER", color=ft.colors.BLUE, weight=ft.FontWeight.BOLD
+            "FILES ORGANIZER", color=ft.colors.BLUE, weight=ft.FontWeight.BOLD, size=35
         ),
         center_title=True,
         bgcolor=ft.colors.WHITE70,
@@ -127,12 +127,16 @@ def main(page: ft.Page):
                 cntrl.control.update()
                 #! yet to implement keep-running and stopping mechanism
                 return
-            if path_ctrl.hint_text == "path to the folder":
+            if path_ctrl.hint_text == "path to the folder" or path_ctrl.hint_text == "":
                 print("choose folder")
             else:
-                print("Organizing...")
-                afo.organize_folder(path_ctrl.hint_text)
-                print("Organized")
+                if (
+                    path_ctrl2.hint_text == "same as source"
+                    or path_ctrl2.hint_text == ""
+                ):
+                    print("Organizing...")
+                    afo.organize_folder(path_ctrl.hint_text)
+                    print("Organized")
 
             #! To be used while implementing keep-running and stopping mechanism
             # if cntrl.control.text == "ORGANIZE":
@@ -145,10 +149,41 @@ def main(page: ft.Page):
             cntrl.control.text == "ERROR"
         cntrl.control.update()
 
+    def wrapper_deorg(cntrl):
+        print("DE-Organizing...")
+        try:
+            if cntrl.control.text != "DE-ORGANIZE":
+                # cntrl.control.text = "ORGANIZE"
+
+                # globals_.KEEP_RUNNING = 0
+                # cntrl.control.update()
+                #! yet to implement keep-running and stopping mechanism
+                return
+            if path_ctrl.hint_text == "path to the folder" or path_ctrl.hint_text == "":
+                print("choose folder")
+            else:
+                if (
+                    path_ctrl2.hint_text == "same as source"
+                    or path_ctrl2.hint_text == ""
+                ):
+                    print("DE - Organizing...")
+                    afo.de_organize(path_ctrl.hint_text)
+                    print("DE-Organized")
+
+        except Exception as e:
+            print(f"error in wrapper_deorg: {e}")
+            cntrl.control.text == "ERROR"
+        cntrl.control.update()
+
     start_btn = ft.ElevatedButton(
         text="ORGANIZE",
         style=button_style1,
         on_click=lambda c: wrapper_organize(c),
+    )
+    Deorg_btn = ft.ElevatedButton(
+        text="DE-ORGANIZE",
+        style=button_style1,
+        on_click=lambda c: wrapper_deorg(c),
     )
 
     # Control 1 Starts
@@ -179,6 +214,7 @@ def main(page: ft.Page):
     page.controls.append(ft.Divider(thickness=1, opacity=0, height=10))
     page.controls.append(main_col)
     page.controls.append(start_btn)
+    page.controls.append(Deorg_btn)
 
     page.update()
 
