@@ -55,7 +55,7 @@ def organize_files_by_extension(source_folder, destination_folder, folder_extens
             target_path = target_folder_path.joinpath(filename)
             # Adjusted to pass the source_path for compatibility with the updated get_unique_filename
             unique_target_path = get_unique_filename(target_path, source_path)
-            shutil.copy(source_path, unique_target_path)
+            shutil.move(source_path, unique_target_path)
 
 
 def move_files_back_to_source(organized_folder, source_folder):
@@ -112,9 +112,9 @@ if __name__ == "__main__":
         logging.info(f"Organized folder: {organized_folder}")
 
         # Uncomment the next line to organize files
-        organize_folder(source_folder)
+        # organize_folder(source_folder)
 
-        # sleep(20)
+        # sleep(10)
         # Move files back to the source folder
         move_back_to_source(str(organized_folder))
         logging.info("Files moved back to source folder.")
