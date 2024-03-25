@@ -1,4 +1,5 @@
-# files_organizer
+# Files Organizer
+![image](https://github.com/dynstat/files_organizer/assets/38962239/2846d128-e3a6-4fd1-8a37-bc95aa15e643)
 
 **WARNING !!!** 
 Do not test it on your important folders and files, it is just a simple FUN project for making desktop GUI apps in python and it is still in the development phase.
